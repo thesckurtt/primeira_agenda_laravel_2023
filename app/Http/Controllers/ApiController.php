@@ -16,11 +16,11 @@ class ApiController extends Controller
             $cliente = Cliente::where('id', $id)->get();
             $cliente_info = new \stdClass;
             foreach($cliente as $key => $value){
-
+                // informações pessoais
                 $cliente->nome = $value->nome;
                 $cliente->telefone = $value->telefone;
                 $cliente->email = $value->email;
-
+                // endereço
                 $cliente->endereco_cep = $value->endereco_cep;
                 $cliente->endereco_rua = $value->endereco_rua;
                 $cliente->endereco_numero = $value->endereco_numero;
@@ -28,7 +28,7 @@ class ApiController extends Controller
                 $cliente->endereco_bairro = $value->endereco_bairro;
                 $cliente->endereco_cidade = $value->endereco_cidade;
                 $cliente->endereco_estado = $value->estado;
-                
+                // outros
                 $cliente->notas = $value->notas;
                 $cliente->created_at = $value->created_at;
                 return response()->json([
