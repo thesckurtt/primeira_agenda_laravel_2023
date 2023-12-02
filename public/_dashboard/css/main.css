@@ -1,0 +1,276 @@
+.limit {
+    margin: 0 auto;
+    max-width: 960px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+.header-dashboard-site {
+    width: 100%;
+    background-color: #D9D9D9;
+    height: 72px;
+    padding: 5px 0;
+}
+
+.limit-header {
+    margin: 0 auto;
+    max-width: 960px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    height: 100%;
+}
+
+.div-logo-container {
+    position: relative;
+    max-width: 80px;
+}
+
+.div-logo-container>img {
+    position: relative;
+    width: 100%;
+}
+
+.h1-dashboard-site {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 2em;
+    color: #394149;
+}
+
+/* Usuario header */
+.alert-usuario-msg {
+    display: block;
+    position: relative;
+    left: -22px;
+    font-size: 1.4em;
+    cursor: pointer;
+}
+
+.alert-usuario-msg::before {
+    position: absolute;
+    content: ' ';
+    width: 10px;
+    height: 10px;
+    background-color: rgb(255, 54, 54);
+    border-radius: 50%;
+    right: -2px;
+    top: 6px;
+    
+}
+
+.div-usuario-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.usuario-informacoes {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    height: 100%;
+    flex-direction: column;
+    padding: 0px 15px;
+}
+
+.div-usuario-avatar-img {
+    position: relative;
+    max-width: 50px;
+    /* border-radius: 50px; */
+}
+
+.div-usuario-avatar-img>img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+}
+
+.header-span-usuario-nome {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 1.125em;
+    color: #394149;
+}
+
+.header-span-usuario-cargo {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: .9em;
+    color: #39414978;
+    top: -6px;
+    position: relative;
+}
+
+/* header-menu-top */
+.header-menu-top {
+    position: relative;
+    cursor: pointer;
+}
+
+/* menu-dropdown-header */
+.menu-dropdown-header {
+    position: absolute;
+    width: 220px !important;
+    right: 0;
+    top: 32px;
+    z-index: 999;
+    -webkit-box-shadow: -1px 3px 14px 1px rgba(0, 0, 0, 0.46);
+    -moz-box-shadow: -1px 3px 14px 1px rgba(0, 0, 0, 0.46);
+    box-shadow: -1px 3px 14px 1px rgba(0, 0, 0, 0.46);
+}
+
+.header-menu-top>div>a>i {
+    position: relative;
+    margin-right: 15px;
+}
+
+/* infos-cards */
+.infos-cards {
+    max-width: 800px;
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+
+.card-numero {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    background-color: #212529;
+    color: #fff;
+    padding: 30px 30px;
+    border-radius: 23px;
+    /* min-width: 200px; */
+
+}
+
+.span-card-numero {
+    font-size: 2.5em;
+    font-weight: 800;
+}
+
+.span-card-numero-titulo {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+}
+
+
+.table-dashboard-lista {
+    position: relative;
+    margin-bottom: 150px !important;
+}
+
+.bg-table-nth {
+    background-color: #d0d0d0c5 !important;
+}
+
+.control-btns-table {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.navbar {
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    box-sizing: border-box !important;
+    padding: 30px 30px !important;
+}
+
+.div-search-table {
+    display: flex;
+    gap: 19px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-right: 10px;
+    background-color: #1B1B1B;
+    border-radius: 7px;
+    padding: 1px 10px 2px 1px;
+}
+
+.div-search-table>input {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.div-search-table>i {
+    position: relative;
+    left: -5px;
+    color: #fff;
+}
+
+.bg-dark {
+    --bs-bg-opacity: 1;
+    background-color: #212529 !important;
+}
+
+.form-inline {
+    display: flex;
+    gap: 10px;
+}
+
+.form-control:focus {
+    box-shadow: none !important;
+    border-color: #fff !important;
+}
+
+/* Animação deletar cadastro */
+
+.hidden-line-table {
+    position: relative;
+    animation-name: hidden-line-table;
+    animation-duration: 0.2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+}
+
+.hidden-mensage-section {
+    animation-name: hidden-mensage-section;
+    animation-duration: 0.3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+}
+
+@keyframes hidden-line-table {
+    from {
+        left: 0;
+        opacity: 1;
+        display: block;
+    }
+
+    to {
+        /*     left: -999px; */
+        opacity: 0;
+        display: none !important;
+        scale: 0.1;
+    }
+}
+
+@keyframes hidden-mensage-section {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        display: none !important;
+    }
+}
