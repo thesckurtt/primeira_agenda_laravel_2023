@@ -7,13 +7,13 @@ use Illuminate\Http\Request;
 
 class ApiController extends Controller
 {
-    public function index(Request $request, $id = null){
-        if (Cliente::where('id', '=', $id)->count() == 0) {
+    public function index(Request $request, $telefone = null){
+        if (Cliente::where('telefone', '=', $telefone)->count() == 0) {
             return response()->json([
                 'error' => true,
             ]);
         }else{
-            $cliente = Cliente::where('id', $id)->get();
+            $cliente = Cliente::where('telefone', $telefone)->get();
             $cliente_info = new \stdClass;
             foreach($cliente as $key => $value){
                 // informações pessoais
