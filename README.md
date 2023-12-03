@@ -1,64 +1,113 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<h1>Projeto Primeira Agenda</h1>
+<hr>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+O Projeto Primeira Agenda foi desenvolvido como parte de um desafio de programação para uma vaga de estágio, onde o objetivo era criar uma agenda telefônica utilizando Laravel 10. O projeto visa atender as seguintes funcionalidades requeridas:
+<br>
+
+**Criar Contato:**
+- Permite adicionar novos contatos à agenda, incluindo informações como nome, número de telefone, e outras informações relevantes.
+<br>
+
+**Editar Contato:**
+- Oferece a capacidade de editar as informações de um contato existente na agenda, proporcionando uma experiência de usuário flexível.
+<br><br>
+
+**Excluir Contato:**<br>
+- Permite remover contatos da agenda, garantindo a facilidade de gerenciar a lista de contatos.
+<br>
+
+**Pesquisar Contato:**
+- Implementa uma funcionalidade de pesquisa que possibilita aos usuários encontrar rapidamente um contato específico na agenda.
+<hr>
+
+**Tecnologias Utilizadas**
+
+O projeto foi construído utilizando Laravel 10, um framework PHP moderno e robusto. Laravel oferece uma estrutura elegante e eficiente para o desenvolvimento de aplicativos web, facilitando a implementação das funcionalidades requeridas.
+
+[![image](https://skillicons.dev/icons?i=js,html,css,php,laravel,jquery,bootstrap,mysql)]('https://www.github.com/thesckurtt')
+<hr><br>
+
+<h2>Instalar Projeto via instalador</h2>
+
+Você pode baixar o instalador no botão abaixo 👇
+
+<p align="left">
+    <a href="https://download1511.mediafire.com/a4bskrdee1ngs14J63w5-aRpG7Vue0nDcyNXOfyEnmHoQNexP2aAFwh2APZkLFW0uiT_sroDojkesGdngf2EiYNSJAJGrcYdlHrrw1C5VSwcqhSFXs6hJnNIK33OrNGa-2xoeqyvo5OIx3r9L0q1jLLd70IhONf4ksmlMeHm6oGgTA/ahcg9gq13ieg4rp/Primeira+Agenda+Install.rar">
+    <img src="https://github.com/thesckurtt/primeira_agenda_laravel_2023/assets/36058994/fe2b5c89-f7c6-4b4f-99aa-ca97e020e237" width="350" title="hover text">
+    </a>
 </p>
 
-## About Laravel
+**Primeiro clique no .bat**
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+![image](https://github.com/thesckurtt/primeira_agenda_laravel_2023/assets/36058994/06455e57-43bd-4168-833c-1f57540d462a)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+**O repositório começara a ser clonado**
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+![image](https://github.com/thesckurtt/primeira_agenda_laravel_2023/assets/36058994/a4bafdc5-bac0-4396-9d9e-2b26df229380)
 
-## Learning Laravel
+**Coloque suas credênciais**
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+![image](https://github.com/thesckurtt/primeira_agenda_laravel_2023/assets/36058994/f3417c39-3641-482b-8c3f-d2ae739d18f0)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+**Pressione qualquer tecla após mensagem**
 
-## Laravel Sponsors
+![image](https://github.com/thesckurtt/primeira_agenda_laravel_2023/assets/36058994/d834ac51-0c0f-4139-9617-b6e5a2f9a30b)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+**Aguarde o composer concluir a instalação(janela secundária)**
 
-### Premium Partners
+![image](https://github.com/thesckurtt/primeira_agenda_laravel_2023/assets/36058994/dac20d1b-a6e7-4f0a-baa8-976f376baf92)
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+**migrations e Seeders completas**
 
-## Contributing
+![image](https://github.com/thesckurtt/primeira_agenda_laravel_2023/assets/36058994/b9e6c278-ed44-4ee0-879c-ff765eddc242)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Pronto, agora é so acessar `http://localhost:8000`.
 
-## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+<h2>Instalar Projeto via terminal</h2>
 
-## Security Vulnerabilities
+**Para executar o projeto em sua máquina local, siga os passos abaixo:**
+<br><br>
+**Clone o Repositório:**
+```bash
+    git clone https://github.com/seu-usuario/primeira-agenda.git
+```
+<br>
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+**Instale as Dependências:**
+```bash
+cd primeira-agenda
+composer install
+```
+<br>
 
-## License
+**Configure o Ambiente:**
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+    Renomeie o arquivo `.env.example` para `.env` e configure as variáveis de ambiente, especialmente as relacionadas ao banco de dados.
+
+
+**Gere a Chave de Aplicação:**
+```bash
+php artisan key:generate
+```
+<br>
+
+**Execute as Migrações e Seeders:**
+```bash
+php artisan migrate --seed
+```
+<br>
+
+**Inicie o Servidor de Desenvolvimento:**
+```bash
+    php artisan serve
+```
+<br>
+
+Acesse o aplicativo no navegador em `http://localhost:8000` e comece a explorar o aplicativo!
+
+
+
+**Licença**
+
+Este projeto está licenciado sob a Licença MIT, o que significa que você pode usá-lo livremente em seus projetos, comerciais ou não.
