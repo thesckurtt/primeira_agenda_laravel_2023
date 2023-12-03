@@ -35,6 +35,9 @@ class Funcoes {
     public static function getEstados(){
         return static::$estados;
     }
+    public static function getWhatsAppLinkForNum($num){
+        return 'https://wa.me/55' . $num;
+    }
 }
 
 

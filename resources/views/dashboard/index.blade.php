@@ -1,4 +1,5 @@
 <?php
+use App\PrimeiraAgenda;
 
 ?>
 
@@ -121,6 +122,10 @@
                     <td>{{ $cliente->nome }}</td>
                     <td>{{ $carbon_data($cliente->created_at) }}</td>
                     <td class="control-btns-table">
+                        <a href="{{ $funcoes::getWhatsAppLinkForNum($cliente->telefone) }}"
+                            data-id="{{ $cliente->id }}" class="btn btn-success">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
                         <button type="button" data-id="{{ $cliente->id }}" class="btn btn-primary"><i
                                 class="fa-solid fa-pen-to-square"></i>
                             Editar</button>

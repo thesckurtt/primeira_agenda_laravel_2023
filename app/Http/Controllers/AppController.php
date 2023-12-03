@@ -59,6 +59,7 @@ class AppController extends Controller
     // ---------------------------------------------
     public function dashboard()
     {
+        $funcoes = new Funcoes();
         $clientes = Cliente::all();
         $contatos_cadastro = Cliente::all()->count();
         $contatos_incompletos = Cliente::where(['email' => null])->count();
@@ -86,6 +87,7 @@ class AppController extends Controller
             'clientes' => $clientes,
             'contatos_incompletos' => $contatos_incompletos,
             'contatos_recentes' => $contatos_recentes,
+            'funcoes' => $funcoes,
         ]);
     }
 
@@ -233,7 +235,7 @@ class AppController extends Controller
             }
         }
     }
- 
+
 
     public function cadastroExcluir($id = null)
     {
@@ -248,5 +250,5 @@ class AppController extends Controller
         return redirect()->route('dashboard.index');
     }
 
-  
+
 }
