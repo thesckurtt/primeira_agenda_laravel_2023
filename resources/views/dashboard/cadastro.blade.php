@@ -9,26 +9,7 @@ if (session()->has('telefone_error')) {
 <x-HeadCadastrosHTML /> {{-- componente do <head></head> --}}
 
 <body class="bg-site">
-    <header class="header-dashboard-site">
-        <div class="limit-header">
-            <div class="div-logo-container">
-                <img src="{{ asset('../img/logo.svg') }}" alt="Logo Primeira Agenda">
-            </div>
-            <h1 class="h1-dashboard-site">Primeira Agenda</h1>
-            <div class="div-usuario-info">
-                <div class="div-usuario-avatar-img">
-                    <img src="{{ asset('_dashboard/img/uifaces-popular-image.jpg') }}" alt="Foto de perfil">
-                </div>
-                <div class="usuario-informacoes">
-                    <span class="header-span-usuario-nome">Augusto Sodré</span>
-                    <span class="header-span-usuario-cargo">Desenvolvedor</span>
-                </div>
-                <div class="header-menu-top">
-                    <img src="{{ asset('_dashboard/img/menu-dots.svg') }}" alt="" draggable="false">
-                </div>
-            </div>
-        </div>
-    </header>
+    <x-HeaderDashboardSite />
 
     <section class="section-cadastro">
 
