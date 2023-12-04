@@ -8,25 +8,7 @@ if (session()->has('telefone_error')) {
 <!DOCTYPE html>
 <html lang="pt-BR">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('_dashboard/css/reset.css') }}">
-    <link rel="stylesheet" href="{{ asset('_dashboard/css/imports.css') }}">
-    <link rel="stylesheet" href="{{ asset('_dashboard/css/main.css') }}">
-    <link rel="stylesheet" href="{{ asset('_dashboard/css/cadastro.css') }}">
-    <link rel="stylesheet" href="{{ asset('_dashboard/css/alert.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
-    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
-    <script src="https://unpkg.com/imask"></script>
-    <title>Dashboard - Cadastro | Primeira Mesa</title>
-</head>
+<x-HeadCadastrosHTML /> {{-- componente do <head></head> --}}
 
 <body class="bg-site">
     <header class="header-dashboard-site">
@@ -82,8 +64,7 @@ if (session()->has('telefone_error')) {
                         <label>Telefone</label>
                         <input name="telefone" id="telefone" type="text" <?php if ($errors->hasAny('telefone') || session()->has('telefone_error')) {
                             echo 'style="color: #872e2e; border: 2px solid #bf6d6d !important; background-color: #e28080;"';
-                        } ?> 
-                            class="form-control"
+                        } ?> class="form-control"
                             placeholder="Telefone" value="{{ old('telefone') }}" required>
                         @if ($errors->hasAny('telefone'))
                             @foreach ($errors->get('telefone') as $error)
@@ -100,11 +81,10 @@ if (session()->has('telefone_error')) {
                 <div class="row">
                     <div class="col-sm-7">
                         <label>Email</label>
-                        <input name="email" id="email" type="text"  <?php if ($errors->hasAny('email')) {
+                        <input name="email" id="email" type="text" <?php if ($errors->hasAny('email')) {
                             echo 'style="color: #872e2e; border: 2px solid #bf6d6d !important; background-color: #e28080;"';
-                        } ?> 
-                            class="form-control" placeholder="Email"
-                            value="{{ old('email') }}">
+                        } ?> class="form-control"
+                            placeholder="Email" value="{{ old('email') }}">
                         @if ($errors->hasAny('email'))
                             @foreach ($errors->get('email') as $error)
                                 <span style="color: #5b4f84">*{{ $error }}</span>
@@ -117,10 +97,11 @@ if (session()->has('telefone_error')) {
                 <div class="row">
                     <div class="col-sm-3">
                         <label>CEP</label>
-                        <input name="endereco_cep" id="cep" maxlength="8" id="cep" type="text"  <?php if ($errors->hasAny('endereco_cep')) {
-                            echo 'style="color: #872e2e; border: 2px solid #bf6d6d !important; background-color: #e28080;"';
-                        } ?> 
-                            class="form-control" placeholder="0000000" value="{{ old('endereco_cep') }}">
+                        <input name="endereco_cep" id="cep" maxlength="8" id="cep" type="text"
+                            <?php if ($errors->hasAny('endereco_cep')) {
+                                echo 'style="color: #872e2e; border: 2px solid #bf6d6d !important; background-color: #e28080;"';
+                            } ?> class="form-control" placeholder="0000000"
+                            value="{{ old('endereco_cep') }}">
                         @if ($errors->hasAny('endereco_cep'))
                             @foreach ($errors->get('endereco_cep') as $error)
                                 <span style="color: #5b4f84">{{ $error }}</span>
@@ -158,21 +139,12 @@ if (session()->has('telefone_error')) {
                     </div>
                     <div class="col-sm-5">
                         <label>Estado</label>
-                        <!-- <input id="estado" type="text" class="form-control" > -->
                         <select name="endereco_estado" id="endereco_estado" class="form-control" placeholder="UF"
                             style="cursor: pointer;" value="{{ old('endereco_estado') }}">
                             <option value="" default>UF</option>
                             @foreach ($estados_br as $key => $estado)
-                                    <option value="{{$key}}" default>{{$estado}}</option>
-                                @endforeach
-                            <?php /*
-                            <option value="" selected>RS</option>
-                            <?php // TODO: Criar lógia de colocar estados que foram cadastrados no banco e colocar o attr select no que vier via ajax
-                            ?>
-                            <option value="">SC</option>
-                            <option value="">MG</option>
-                            <option value="">SP</option>
-                            */?>
+                                <option value="{{ $key }}" default>{{ $estado }}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
@@ -251,5 +223,4 @@ if (session()->has('telefone_error')) {
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous">
     </script>
 </body>
-
 </html>
