@@ -24,6 +24,8 @@ O Projeto Primeira Agenda foi desenvolvido como parte de um desafio de programa�
 
 O projeto foi construído utilizando Laravel 10, um framework PHP moderno e robusto. Laravel oferece uma estrutura elegante e eficiente para o desenvolvimento de aplicativos web, facilitando a implementação das funcionalidades requeridas.
 
+Além dele, outras tecnologias foram utilizadas, veja abaixo algumas delas.
+
 [![image](https://skillicons.dev/icons?i=js,html,css,php,laravel,jquery,bootstrap,mysql)]('https://www.github.com/thesckurtt')
 <hr><br>
 
@@ -70,25 +72,14 @@ Pronto, agora é so acessar `http://localhost:8000`.
 <br><br>
 **Clone o Repositório:**
 ```bash
-    git clone https://github.com/seu-usuario/primeira-agenda.git
+git clone https://github.com/thesckurtt/primeira_agenda_laravel_2023.git
 ```
 <br>
 
 **Instale as Dependências:**
 ```bash
-cd primeira-agenda
+cd primeira_agenda_laravel_2023
 composer install
-```
-<br>
-
-**Configure o Ambiente:**
-
-    Renomeie o arquivo `.env.example` para `.env` e configure as variáveis de ambiente, especialmente as relacionadas ao banco de dados.
-
-
-**Gere a Chave de Aplicação:**
-```bash
-php artisan key:generate
 ```
 <br>
 
@@ -100,14 +91,24 @@ php artisan migrate --seed
 
 **Inicie o Servidor de Desenvolvimento:**
 ```bash
-    php artisan serve
+php artisan serve
 ```
 <br>
 
 Acesse o aplicativo no navegador em `http://localhost:8000` e comece a explorar o aplicativo!
 
 
+<h2>Usando a API da aplicação </h2>
 
-**Licença**
+A API da aplicação busca usuários cadastrados pelo número de telefone.
 
-Este projeto está licenciado sob a Licença MIT, o que significa que você pode usá-lo livremente em seus projetos, comerciais ou não.
+**Você pode usar API da seguinte forma:**
+
+`http://localhost:8000/api/v1/` + `54235234534`
+
+Retorno se o numero passado pertencer a um usuário
+![image](https://github.com/thesckurtt/primeira_agenda_laravel_2023/assets/36058994/0ff968cc-f162-4e3a-87be-84f4bf7aefa9)
+
+Retorno se número passado não pertencer a nenhum usuário
+![image](https://github.com/thesckurtt/primeira_agenda_laravel_2023/assets/36058994/2402d2dd-7a01-4fad-a757-e1e85e3a8822)
+
