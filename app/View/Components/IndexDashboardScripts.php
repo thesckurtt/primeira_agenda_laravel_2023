@@ -25,7 +25,15 @@ class IndexDashboardScripts extends Component
     public function render()
     {
         $contatos_cadastro = Cliente::all()->count();
-        $contatos_incompletos = Cliente::where(['email' => null])->count();
+        $contatos_incompletos = Cliente::whereRaw(
+            'email is null or
+            endereco_cep is null or
+            endereco_rua is null or
+            endereco_numero is null or
+            endereco_bairro is null or
+            endereco_cidade is null or
+            endereco_estado is null'
+        )->count();
         $contatos_recentes = Cliente::select(
             'nome',
             'created_at',

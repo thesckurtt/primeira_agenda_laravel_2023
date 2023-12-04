@@ -9,6 +9,7 @@ use App\Models\Cliente;
 use App\PrimeiraAgenda\Funcoes;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
+
 class AppController extends Controller
 {
     // ---------------------------------------------
@@ -24,7 +25,7 @@ class AppController extends Controller
 
     public function auth(Request $request)
     {
-        if(empty($request->input('email')) || empty($request->input('password')) || empty($request->input('_token'))){
+        if (empty($request->input('email')) || empty($request->input('password')) || empty($request->input('_token'))) {
             return redirect()->route('login');
         }
         $credenciais = $request->validate([
@@ -62,14 +63,23 @@ class AppController extends Controller
         $funcoes = new Funcoes();
         $clientes = Cliente::all();
         $contatos_cadastro = Cliente::all()->count();
-        $contatos_incompletos = Cliente::where(['email' => null])->count();
+        // $contatos_incompletos = Cliente::where(['email' => null])->count();
+        $contatos_incompletos = Cliente::whereRaw(
+            'email is null or
+            endereco_cep is null or
+            endereco_rua is null or
+            endereco_numero is null or
+            endereco_bairro is null or
+            endereco_cidade is null or
+            endereco_estado is null'
+        )->count();
         $contatos_recentes = Cliente::select(
             'nome',
             'created_at',
             DB::raw('DATEDIFF(CURRENT_DATE(), DATE_FORMAT(created_at, "%Y/%m/%d/")) AS diferenca_dias')
         )
-        ->whereRaw('DATEDIFF(CURRENT_DATE(), DATE_FORMAT(created_at, "%Y/%m/%d/")) <= 15')
-        ->get()->count();
+            ->whereRaw('DATEDIFF(CURRENT_DATE(), DATE_FORMAT(created_at, "%Y/%m/%d/")) <= 15')
+            ->get()->count();
 
         // TODO: $contatos_incompletos
         $recentes = Cliente::where([
