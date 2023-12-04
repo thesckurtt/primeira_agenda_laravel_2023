@@ -6,7 +6,7 @@ if (session()->has('telefone_error')) {
 <!DOCTYPE html>
 <html lang="pt-BR">
 
-<x-HeadCadastrosHTML /> {{-- componente do <head></head> --}}
+<x-HeadCadastrosHTML />
 
 <body class="bg-site">
     <x-HeaderDashboardSite />
@@ -81,10 +81,12 @@ if (session()->has('telefone_error')) {
                     <div class="row">
                         <div class="col-sm-3">
                             <label>CEP</label>
-                            <input name="endereco_cep" id="cep" maxlength="8" id="cep" type="text" <?php if ($errors->hasAny('endereco_cep')) {
-                                echo 'style="color: #872e2e; border: 2px solid #bf6d6d !important; background-color: #e28080;"';
-                            } ?>
-                                value="{{ $errors->hasAny('endereco_cep') ? old('endereco_cep') : $cliente->endereco_cep }}"class="form-control" placeholder="0000000">
+                            <input name="endereco_cep" id="cep" maxlength="8" id="cep" type="text"
+                                <?php if ($errors->hasAny('endereco_cep')) {
+                                    echo 'style="color: #872e2e; border: 2px solid #bf6d6d !important; background-color: #e28080;"';
+                                } ?>
+                                value="{{ $errors->hasAny('endereco_cep') ? old('endereco_cep') : $cliente->endereco_cep }}"class="form-control"
+                                placeholder="0000000">
                             @if ($errors->hasAny('endereco_cep'))
                                 @foreach ($errors->get('endereco_cep') as $error)
                                     <span style="color: #5b4f84">{{ $error }}</span>
@@ -124,12 +126,11 @@ if (session()->has('telefone_error')) {
                         </div>
                         <div class="col-sm-5">
                             <label>Estado</label>
-                            <!-- <input id="estado" type="text" class="form-control" > -->
                             <select name="endereco_estado" id="endereco_estado" class="form-control" placeholder="UF"
                                 style="cursor: pointer;">
-                                <option value="" default>UF</option>
+                                <option default>UF</option>
                                 @foreach ($estados_br as $key => $estado)
-                                    <option value="{{$key}}" default>{{$estado}}</option>
+                                    <option value="{{ $key }}" default>{{ $estado }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -145,8 +146,8 @@ if (session()->has('telefone_error')) {
                     </div>
                     <div class="row div-btn-cadastro">
                         <div class="col-sm control-btn-cadastro">
-                            <a href="{{route('dashboard.cadastro_excluir')}}/{{$cliente->id}}" class="btn btn-danger">Excluir&nbsp;&nbsp;<i
-                                    class="fa-solid fa-trash"></i></a>
+                            <a href="{{ route('dashboard.cadastro_excluir') }}/{{ $cliente->id }}"
+                                class="btn btn-danger">Excluir&nbsp;&nbsp;<i class="fa-solid fa-trash"></i></a>
                             <button type="submit" class="btn btn-success">Salvar&nbsp;&nbsp;<i
                                     class="fa-solid fa-check"></i></button>
                         </div>
@@ -155,7 +156,76 @@ if (session()->has('telefone_error')) {
             @endforeach
         </div>
     </section>
-    <x-CadastrosScripts/>
+    @foreach ($cliente_info as $cliente)
+        @if (!empty($cliente->endereco_estado))
+            <script>
+                $("#endereco_estado").val('{{$cliente->endereco_estado}}');
+            </script>
+        @endif
+    @endforeach
+
+    <script>
+        $("#cep").on("keyup", () => {
+            if ($("#cep").val().length == 8) {
+                var cep = $("#cep").val();
+                cep.toString();
+                $.ajax({
+
+                    url: "https://viacep.com.br/ws/" + cep + "/json/",
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data) {
+                        if (data.erro !== undefined) {
+                            alert("CEP inválido ou não encontrado");
+                        } else {
+                            console.log(data.logradouro);
+                            $("#rua").val(data.logradouro);
+                            $("#complemento").val(data.complemento);
+                            $("#bairro").val(data.bairro);
+                            $("#cidade").val(data.localidade);
+                            $("#endereco_estado").val(data.uf);
+                        }
+                    },
+                    error: function(data) {
+                        alert("Algum erro ocorreu, consulte o log.");
+                    },
+
+                });
+            }
+        });
+        IMask(
+            document.getElementById('telefone'), {
+                mask: '(00) 00000-0000'
+            }
+        );
+        IMask(
+            document.getElementById('cep'), {
+                mask: '00000000'
+            }
+        );
+
+        $('.fa-xmark[data-btn-id="close-alert-error"]').click(() => {
+            $('.alert-error').hide();
+        })
+    </script>
+    <script>
+        $('#header-menu-top').click(() => {
+            $('.menu-dropdown-header').toggleClass('hidden');
+        });
+        $('.menu-dropdown-header').on('mouseleave', () => {
+            $('.menu-dropdown-header').addClass('hidden');
+        })
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous">
+    </script>
+
 </body>
 
 </html>

@@ -1,17 +1,14 @@
 <?php
 
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Cliente;
-use App\PrimeiraAgenda\Estados;
 use App\PrimeiraAgenda\Funcoes;
-use App\Rules\telefone;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
-
 class AppController extends Controller
 {
     // ---------------------------------------------
@@ -27,6 +24,9 @@ class AppController extends Controller
 
     public function auth(Request $request)
     {
+        if(empty($request->input('email')) || empty($request->input('password')) || empty($request->input('_token'))){
+            return redirect()->route('login');
+        }
         $credenciais = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required']
@@ -71,6 +71,7 @@ class AppController extends Controller
         ->whereRaw('DATEDIFF(CURRENT_DATE(), DATE_FORMAT(created_at, "%Y/%m/%d/")) <= 15')
         ->get()->count();
 
+        // TODO: $contatos_incompletos
         $recentes = Cliente::where([
             'email' => null,
             'endereco_cep' => null,
@@ -171,6 +172,9 @@ class AppController extends Controller
     public function cadastroAtualizar(Request $request, $id = null)
     {
         // O método cadastroAtualizar serve para atualizar as informações do cliente no DB
+        // dd($request->input()); // TODO: Resolver
+
+
         if (Cliente::where('id', '=', $id)->count() == 0) {
             return redirect()->route('dashboard.index');
         } else {
@@ -249,6 +253,4 @@ class AppController extends Controller
         }
         return redirect()->route('dashboard.index');
     }
-
-
 }

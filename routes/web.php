@@ -7,6 +7,7 @@ use App\Http\Controllers\ApiController;
 // Autenticação
 Route::get('/login', [AppController::class, 'login'])->name('login');
 Route::post('/auth', [AppController::class, 'auth'])->name('login.auth');
+Route::get('/auth', [AppController::class, 'auth'])->name('login.auth');
 Route::get('/logout', [AppController::class, 'logout'])->name('logout');
 
 Route::redirect('/', '/dashboard');
